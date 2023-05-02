@@ -20,7 +20,7 @@ userRouter.get("/",async(req,res)=>{
 
 userRouter.get("/:id/friends",async(req,res)=>{
     try{
-        let  user = await User.find({_id:req.params:id})
+        let  user = await User.find({_id:req.params.id})
         let friends = user.friends 
         res.send(friends)
     }catch(err){
