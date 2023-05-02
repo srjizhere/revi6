@@ -7,7 +7,10 @@ const authenticate = (req, res, next) => {
   console.log(token);
   if (token) {
     const decoded = jwt.verify(token, SECRET);
+    console.log(decoded);
     if (decoded) {
+      req.headers.id = decoded.Userid;
+
       next();
     } else {
       res.send("Please login first");
