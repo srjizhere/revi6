@@ -20,8 +20,8 @@ userRouter.get("/",async(req,res)=>{
 
 userRouter.get("/:id/friends",async(req,res)=>{
     try{
-        let  user = await User.find({_id:req.params.id})[0]
-        let friends = user.friends 
+        let  user = await User.find({_id:req.params.id})
+        let friends = user[0].friends 
         res.send(friends)
     }catch(err){
         res.send({msg:"err"})
